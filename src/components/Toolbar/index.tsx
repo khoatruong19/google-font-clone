@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import SearchFont from './components/SearchFont';
-import PreviewText from './components/PreviewText';
-import FontSize from './components/FontSize';
-import CustomSelect from '../core/CustomSelect';
-import { CATEGORY_OPTIONS, LANGUAGE_OPTIONS } from './constants';
+import { useState } from 'react';
 import CustomCheckboxSelect from '../core/CustomCheckboxSelect';
+import CustomSelect from '../core/CustomSelect';
+import FontSize from './components/FontSize';
+import PreviewText from './components/PreviewText';
+import SearchFont from './components/SearchFont';
+import { CATEGORY_OPTIONS, LANGUAGE_OPTIONS } from './constants';
 
 const Toolbar = () => {
   const [languageSelected, setLanguageSelected] = useState(LANGUAGE_OPTIONS[0]);

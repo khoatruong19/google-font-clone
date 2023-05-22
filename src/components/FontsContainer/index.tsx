@@ -1,4 +1,3 @@
-import React from 'react'
 import FontsContainerHeader from './components/FontsContainerHeader'
 import FontCard from './components/FontCard'
 

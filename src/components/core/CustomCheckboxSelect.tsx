@@ -17,7 +17,6 @@ const CustomCheckboxSelect = (props: IProps) => {
   const {
     label,
     optionsData,
-    setOption,
     tooltipTitle,
     customClass = '',
     customOptionsClass = ""
@@ -42,10 +41,6 @@ const CustomCheckboxSelect = (props: IProps) => {
   };
 
   const renderOptions = () => {
-    const handleSelectOption = (option: ICheckboxOption) => {
-      setOption(option);
-      setIsHover(false);
-    };
     if (isOpen)
       return (
         <div

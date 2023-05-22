@@ -7,8 +7,6 @@ import { IOption } from '../../../pages/interfaces';
 const FontSize = () => {
   const [selectedSize, setSelectedSize] = useState<IOption>(DEFAULT_FONT_SIZE);
 
-  const [openOptions, setOpenOptions] = useState(false);
-
   return (
     <div
       className="text-secondaryColor flex-1 h-14 

@@ -8,7 +8,6 @@ const PreviewText = () => {
     PREVIEW_TEXT_OPTIONS[1]
   );
   const [customText, setCustomText] = useState('');
-  const [openOptions, setOpenOptions] = useState(false);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
