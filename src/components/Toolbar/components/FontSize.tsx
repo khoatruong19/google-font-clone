@@ -38,6 +38,7 @@ const FontSize = () => {
       />
       <div className="border-l-[1.5px] p-2">
         <ArrowPathIcon
+          onClick={() => setSelectedSize(DEFAULT_FONT_SIZE)}
           className={`h-8 w-8 rounded-full p-1.5 ${
             selectedSize.value !== DEFAULT_FONT_SIZE.value ?
             'cursor-pointer hover:bg-secondaryColor/10 opacity-100' : "opacity-50"
