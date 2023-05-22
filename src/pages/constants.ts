@@ -1,12 +1,5 @@
 import Home from "./Home"
-
-interface IPageRoute{
-    name: string
-    path: string
-    component: () => JSX.Element
-    layout?: () => JSX.Element,
-    customLayoutClassName?: string
-}
+import { IPageRoute } from "./interfaces"
 
 const APP_ROUTES : IPageRoute[] = [
     {

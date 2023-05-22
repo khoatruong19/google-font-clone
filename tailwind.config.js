@@ -1,12 +1,29 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
+
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primaryColor: "#BC371F",
+        secondaryColor: "#253D4C",
+      },
+      screens:{
+        '3xl': '1600px',
+      },
+      boxShadow: {
+        'even': 'rgba(0, 0, 0, 0.35) 0px 5px 15px;',
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+    require("daisyui")
+  ],
 }
 

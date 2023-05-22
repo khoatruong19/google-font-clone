@@ -1,8 +1,10 @@
-import React from 'react'
+import Toolbar from '../../components/Toolbar'
 
 const Home = () => {
   return (
-    <div className="text-red-400">Home</div>
+    <div className="">
+      <Toolbar/>
+    </div>
   )
 }
 
