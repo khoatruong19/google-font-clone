@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import { BrowserRouter } from 'react-router-dom'
+import AppRoutes from "./pages/AppRoutes"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <p className='text-red-400'>ágdjhas</p>     
-    </>
+    <BrowserRouter>
+      <AppRoutes/>
+    </BrowserRouter>
   )
 }
 
