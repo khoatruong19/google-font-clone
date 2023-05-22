@@ -1,25 +1,26 @@
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
-import { IOption } from '../Toolbar/interfaces';
 import { useCheckClickOutside } from '../../hooks/useCheckClickOutside';
 import { useRef, useState } from 'react';
 import Tooltip from './Tooltip';
+import { IOption } from '../../pages/interfaces';
 
 interface IProps {
-  isOpen: boolean;
-  setOpen: (value: boolean) => void;
   setOption: (option: IOption) => void;
   optionsData: IOption[];
   selectedOption: IOption;
   tooltipTitle?: string
+  customClass?: string
+  customOptionsClass?: string
 }
 
 const CustomSelect = (props: IProps) => {
-  const { isOpen, optionsData, setOpen, setOption, selectedOption, tooltipTitle } = props;
-  const optionsRef = useRef<HTMLDivElement | null>(null);
+  const { optionsData, setOption, selectedOption, tooltipTitle, customClass = "", customOptionsClass= "" } = props;
+  const selectRef = useRef<HTMLDivElement | null>(null);
+  const [isOpen, setOpen] = useState(false)
   const [isHover, setIsHover] = useState(false)
 
   useCheckClickOutside({
-    ref: optionsRef,
+    ref: selectRef,
     callback: () => {
       setOpen(false);
     },
@@ -34,20 +35,23 @@ const CustomSelect = (props: IProps) => {
   }
 
   const renderOptions = () => {
+    const handleSelectOption = (option: IOption) => {
+      setOption(option)
+      setIsHover(false)
+    }
     if (isOpen)
       return (
         <div
-          ref={optionsRef}
-          className="w-[110%] py-2 absolute top-11 left-0 bg-white shadow-even rounded-lg max-h-[200px] overflow-y-auto overflow-x-hidden
-          scrollbar-thumb-primaryColor/40 scrollbar scrollbar-thin"
+          className={`w-[110%] py-2 absolute top-11 left-0 bg-white shadow-even rounded-lg max-h-[200px] overflow-y-auto overflow-x-hidden
+          scrollbar-thumb-primaryColor/40 scrollbar scrollbar-thin ${customOptionsClass}`}
         >
           {optionsData.map((option) => (
             <div
               key={option.title}
-              className={`p-3 cursor-pointer ${
-                selectedOption.title === option.title ? 'bg-red-50' : ''
+              className={`p-3 cursor-pointer text-secondaryColor ${
+                selectedOption.title === option.title ? 'bg-red-50' : 'hover:bg-secondaryColor/10'
               }`}
-              onClick={() => setOption(option)}
+              onClick={() => handleSelectOption(option)}
             >
               {option.title}
             </div>
@@ -59,13 +63,14 @@ const CustomSelect = (props: IProps) => {
 
   return (
     <div
-      onClick={() => setOpen(!isOpen)}
+      ref={selectRef}
+      onClick={() => setOpen(prev => !prev)}
       className={`relative text-secondaryColor/80 py-2 px-2 justify-center flex items-center gap-2 cursor-pointer rounded-md
-       hover:bg-primaryColor/10 hover:text-primaryColor ${isOpen ? 'bg-primaryColor/10 text-primaryColor/20' : ''}`}
+       hover:bg-primaryColor/10 hover:text-primaryColor ${isOpen ? 'bg-primaryColor/10 text-primaryColor' : ''} ${customClass}`}
       onMouseEnter={() => controlHover()}
       onMouseLeave={() => controlHover(true)}
     >
-      <span className="text-sm font-medium">
+      <span className={`text-sm font-medium ${isOpen && "text-primaryColor"}`}>
         {selectedOption.title}
       </span>
       <span className="mt-1 text-primaryColor">
@@ -76,7 +81,7 @@ const CustomSelect = (props: IProps) => {
         )}
       </span>
       {renderOptions()}
-      {tooltipTitle && isHover && <Tooltip content={tooltipTitle} customClass='top-[120%]' />}
+      {!isOpen && tooltipTitle && isHover && <Tooltip content={tooltipTitle} customClass='top-[120%]' />}
     </div>
   );
 };

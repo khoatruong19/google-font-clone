@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { PREVIEW_TEXT_OPTIONS } from '../constants';
-import { IOption } from '../interfaces';
 import CustomSelect from '../../core/CustomSelect';
+import { IOption } from '../../../pages/interfaces';
 
 const PreviewText = () => {
   const [selectedOption, setSelectedOption] = useState<IOption>(
@@ -28,15 +28,13 @@ const PreviewText = () => {
 
   return (
     <div
-      className="text-secondaryColor w-[100%] md:w-[34vw] h-14 
-      border-[1.5px] rounded-3xl p-3 px-2 flex items-center gap-3 md:border-l-0 md:rounded-none
+      className="text-secondaryColor w-[65% ] max-w-[50vw] md:max-w-full md:w-[34vw] h-14 
+      border-[1.5px] rounded-3xl p-3 px-2 flex items-center gap-3 rounded-tr-none rounded-br-none md:border-l-0 md:rounded-none
       border-collapse"
     >
       <CustomSelect
-        isOpen={openOptions}
         optionsData={PREVIEW_TEXT_OPTIONS}
         selectedOption={selectedOption}
-        setOpen={setOpenOptions}
         setOption={setSelectedOption}
         tooltipTitle='Update preview text'
       />
