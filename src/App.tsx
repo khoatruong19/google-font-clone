@@ -15,11 +15,11 @@ function App() {
       try {
         const res = await googleFontService.getAllFonts();
         const fonts = res.data.items;
-        _.forEach(fonts, (font) => {
-          const newStyle = document.createElement('style');
-          newStyle.appendChild(document.createTextNode('@font-face{font-family: '+font.family+'; src: url('+font.files.regular+');}'));
-          document.head.appendChild(newStyle);
-        });
+        // _.forEach(fonts, (font) => {
+        //   const newStyle = document.createElement('style');
+        //   newStyle.appendChild(document.createTextNode('@font-face{font-family: '+font.family+'; src: url('+font.files.regular+');}'));
+        //   document.head.appendChild(newStyle);
+        // });
         setFonts(fonts);
       } catch (error) {
         setFonts([]);

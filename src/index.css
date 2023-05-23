@@ -1,13 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-@font-face {
-  font-family: myFirstFont;
-  src: url("http://fonts.gstatic.com/s/pangolin/v11/cY9GfjGcW0FPpi-tWPfK5d3aiLBG.ttf");
-}
-
-body{
-    font-family: myFirstFont;
-}
