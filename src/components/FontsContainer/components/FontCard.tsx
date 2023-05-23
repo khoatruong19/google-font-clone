@@ -1,5 +1,7 @@
 import useFontStore, { IFontInGeneral } from '../../../stores/fontStore';
+import { addFont } from '../../../utils/fontUtils';
 import { DEFAULT_SAMPLE_SENTENCES } from '../constants';
+import {useEffect} from "react"
 
 interface IProps {
   font: IFontInGeneral;
@@ -7,6 +9,14 @@ interface IProps {
 
 const FontCard = ({ font }: IProps) => {
   const {previewText, fontSize} = useFontStore()
+
+  useEffect(() => {
+    const style = addFont(font.family, font.fontUrl)
+
+    return () => {
+      document.head.removeChild(style)
+    }
+  }, [font])
   return (
     <div className="h-[100%] min-h-[300px] w-[100%] border-[1.5px] rounded-lg hover:shadow-md cursor-pointer">
       <div className="py-3 px-4 pb-5">

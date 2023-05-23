@@ -7,6 +7,7 @@ export interface IFontInGeneral{
   variants: string[]
   category: string
   subsets: string[]
+  fontUrl: string
 }
 
 type FontState = {

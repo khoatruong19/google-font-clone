@@ -20,7 +20,16 @@ function App() {
         //   newStyle.appendChild(document.createTextNode('@font-face{font-family: '+font.family+'; src: url('+font.files.regular+');}'));
         //   document.head.appendChild(newStyle);
         // });
-        setFonts(fonts);
+
+        setFonts(
+          _.map(fonts, ({ family, variants, subsets, category, files }) => ({
+            family,
+            variants,
+            subsets,
+            category,
+            fontUrl: _.get(files, 'regular'),
+          }))
+        );
       } catch (error) {
         setFonts([]);
       }
