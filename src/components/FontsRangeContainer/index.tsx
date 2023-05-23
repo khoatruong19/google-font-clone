@@ -35,7 +35,7 @@ const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
                 {previewText.length > 0 ? previewText : "Contrary to popular belief, Lorem Ipsum is not simply"}
               </p>
             </div>
-            <div className='flex items-center gap-2 text-primaryColor hover:bg-primaryColor/20 p-2 rounded-md font-medium cursor-pointer'>
+            <div className='flex items-center gap-2 text-primaryColor hover:bg-primaryColor/10 p-2 rounded-md font-medium cursor-pointer'>
                 <span>Select {convertFontWeightToName(font.name)}</span>
                 <PlusCircleIcon className='w-5 h-5'/>
              </div>   

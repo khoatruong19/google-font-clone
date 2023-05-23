@@ -1,5 +1,5 @@
 import { ArrowPathIcon } from '@heroicons/react/24/solid';
-import { useState,useCallback, useEffect } from 'react';
+import { useState,useCallback } from 'react';
 import { FONT_SIZE_OPTIONS, DEFAULT_FONT_SIZE } from '../constants';
 import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
