@@ -1,6 +1,7 @@
 import FontsContainerHeader from './components/FontsContainerHeader';
 import FontCard from './components/FontCard';
 import useFontStore from '../../stores/fontStore';
+import NotFoundLight from "../../assets/not-found-light.png"
 import _ from 'lodash';
 import { useMemo } from 'react';
 
@@ -12,7 +13,7 @@ const FontsContainer = () => {
       (item) => item.value && item.title.toLowerCase().replace(' ', '-')
     );
     categoryKeys = _.compact(categoryKeys);
-    console.log({ categories, categoryKeys });
+
     let tempFonts = [...fonts];
 
     if (categoryKeys.length < categories.length) {
@@ -38,7 +39,7 @@ const FontsContainer = () => {
         <div className="min-h-[25vh] w-[100%] flex flex-col items-center justify-center gap-3">
           <img
             className="w-28 h-28 object-cover ml-4"
-            src="http://clipart-library.com/image_gallery2/Spider-Man-PNG-Picture.png"
+            src={NotFoundLight}
           />
           <h3 className="text-2xl font-semibold text-primaryColor/90">
             Oops!{' '}
