@@ -1,10 +1,50 @@
-import { ICheckboxOption, IOption } from "../../pages/interfaces";
+import { ICheckboxOption, IOption } from '../../pages/interfaces';
 
 const fontSizesGenerator = (): IOption[] =>
   [8, 12, 14, 20, 24, 32, 40, 64, 96, 120, 184, 280].map((size) => ({
     title: `${size}px`,
     value: `${size}`,
-}));
+  }));
+
+const languagesGenerator = (): IOption[] =>
+  [
+    'All Language',
+    'Latin',
+    'Cyrillic',
+    'Greek',
+    'Vietnamese',
+    'Thai',
+    'Arabic',
+    'Hebrew',
+    'Devanagari',
+    'Tamil',
+    'Bengali',
+    'Telugu',
+    'Gujarati',
+    'Gurmukhi',
+    'Kannada',
+    'Malayalam',
+    'Sinhala',
+    'Khmer',
+    'Lao',
+    'Burmese',
+    'Japanese',
+    'Korean',
+    'Chinese Simplified',
+    'Chinese Hongkong',
+  ].map((language, i) => {
+    const title = language;
+    const value = language.toLowerCase();
+    if (i !== 0)
+      return {
+        title,
+        value,
+      };
+    return {
+      title,
+      value: '',
+    };
+  });
 
 const PREVIEW_TEXT_OPTIONS: IOption[] = [
   {
@@ -21,20 +61,10 @@ const PREVIEW_TEXT_OPTIONS: IOption[] = [
   },
 ];
 
-
 const FONT_SIZE_OPTIONS = fontSizesGenerator();
-const DEFAULT_FONT_SIZE = FONT_SIZE_OPTIONS[6]
+const DEFAULT_FONT_SIZE = FONT_SIZE_OPTIONS[6];
 
-const LANGUAGE_OPTIONS: IOption[] = [
-  {
-    title: 'All Languages',
-    value: 'all',
-  },
-  {
-    title: 'Arabic',
-    value: 'Arab',
-  },
-]
+const LANGUAGE_OPTIONS = languagesGenerator();
 
 const CATEGORY_OPTIONS: ICheckboxOption[] = [
   {
@@ -57,6 +87,12 @@ const CATEGORY_OPTIONS: ICheckboxOption[] = [
     title: 'Monospace',
     value: true,
   },
-]
+];
 
-export { PREVIEW_TEXT_OPTIONS, FONT_SIZE_OPTIONS, DEFAULT_FONT_SIZE, LANGUAGE_OPTIONS, CATEGORY_OPTIONS };
+export {
+  PREVIEW_TEXT_OPTIONS,
+  FONT_SIZE_OPTIONS,
+  DEFAULT_FONT_SIZE,
+  LANGUAGE_OPTIONS,
+  CATEGORY_OPTIONS,
+};

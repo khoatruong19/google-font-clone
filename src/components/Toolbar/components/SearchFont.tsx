@@ -1,8 +1,24 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import useFontStore from '../../../stores/fontStore';
+import _ from 'lodash';
+import { useCallback, useState } from 'react';
 
 const SearchFont = () => {
-  const [fontInput, setFontInput] = useState('');
+  const { fontSearchKey, setFontSearchKey } = useFontStore();
+
+  const [value, setValue] = useState(fontSearchKey);
+
+  const debounceFn = useCallback(
+    _.debounce((key) => {
+      setFontSearchKey(key);
+    }, 500),
+    []
+  );
+
+  const handleChangeSearchKey = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+    debounceFn(event.target.value);
+  }
 
   return (
     <div
@@ -11,8 +27,8 @@ const SearchFont = () => {
     >
       <MagnifyingGlassIcon className="h-6 w-6" />
       <input
-        value={fontInput}
-        onChange={(e) => setFontInput(e.target.value)}
+        value={value}
+        onChange={handleChangeSearchKey}
         className="w-[100%] h-[100%] text-lg outline-none focus:placeholder:text-primaryColor"
         placeholder="Search fonts"
       />

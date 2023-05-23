@@ -1,11 +1,32 @@
 import { ArrowPathIcon } from '@heroicons/react/24/solid';
-import { useState } from 'react';
+import { useState,useCallback } from 'react';
 import { FONT_SIZE_OPTIONS, DEFAULT_FONT_SIZE } from '../constants';
 import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
+import useFontStore from '../../../stores/fontStore';
+import _ from "lodash"
 
 const FontSize = () => {
-  const [selectedSize, setSelectedSize] = useState<IOption>(DEFAULT_FONT_SIZE);
+  const {fontSize, setFontSize} = useFontStore()
+
+  const [selectedSize, setSelectedSize] = useState<IOption>(fontSize);
+
+  const debounceFn = useCallback(
+    _.debounce((text) => {
+      setFontSize(text);
+    }, 100),
+    []
+  );
+
+  const handleChangePreviewText = (size: IOption) => {
+    setSelectedSize(size);
+    debounceFn(size);
+  }
+
+  const handleResetSize = () => {
+    setFontSize(DEFAULT_FONT_SIZE);
+    setSelectedSize(DEFAULT_FONT_SIZE);
+  }
 
   return (
     <div
@@ -25,7 +46,7 @@ const FontSize = () => {
         max="300"
         value={selectedSize.value}
         onChange={(e) =>
-          setSelectedSize({
+          handleChangePreviewText({
             title: `${e.target.value}px`,
             value: `${e.target.value}`,
           })
@@ -34,7 +55,7 @@ const FontSize = () => {
       />
       <div className="border-l-[1.5px] p-2 hidden md:block">
         <ArrowPathIcon
-          onClick={() => setSelectedSize(DEFAULT_FONT_SIZE)}
+          onClick={handleResetSize}
           className={`h-8 w-8 rounded-full p-1.5 ${
             selectedSize.value !== DEFAULT_FONT_SIZE.value ?
             'cursor-pointer hover:bg-secondaryColor/10 opacity-100' : "opacity-50"

@@ -19,7 +19,8 @@ const CustomCheckboxSelect = (props: IProps) => {
     optionsData,
     tooltipTitle,
     customClass = '',
-    customOptionsClass = ""
+    customOptionsClass = "",
+    setOption
   } = props;
   const selectRef = useRef<HTMLDivElement | null>(null);
   const [isOpen, setOpen] = useState(false);
@@ -48,8 +49,8 @@ const CustomCheckboxSelect = (props: IProps) => {
           scrollbar-thumb-primaryColor/40 scrollbar scrollbar-thin ${customOptionsClass}`}
         >
           {optionsData.map((option) => (
-            <div className={`flex items-center gap-3 whitespace-nowrap px-3 py-3`}>
-              <input type="checkbox" checked className="checkbox checkbox-error" />
+            <div key={option.title} className={`flex items-center gap-3 whitespace-nowrap px-3 py-3`}>
+              <input onChange={() => setOption(option)} type="checkbox" checked={option.value} className="checkbox checkbox-error" />
               <span>{option.title}</span>
             </div>
           ))}

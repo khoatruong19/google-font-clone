@@ -1,19 +1,38 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState,useCallback } from 'react';
 import { PREVIEW_TEXT_OPTIONS } from '../constants';
 import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
+import useFontStore from '../../../stores/fontStore';
+import _ from "lodash"
 
 const PreviewText = () => {
+  const {previewText, setPreviewText} = useFontStore()
+
   const [selectedOption, setSelectedOption] = useState<IOption>(
     PREVIEW_TEXT_OPTIONS[1]
   );
-  const [customText, setCustomText] = useState('');
+
+  const [value, setValue] = useState(previewText)
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const isCustomMode = useMemo(() => {
-    return selectedOption.title === 'Custom' || customText.length > 0;
-  }, [selectedOption, customText]);
+    return selectedOption.title === 'Custom' || value.length > 0;
+  }, [selectedOption, value]);
+
+  const debounceFn = useCallback(
+    _.debounce((text) => {
+      setPreviewText(text);
+    }, 100),
+    []
+  );
+
+  const handleChangePreviewText = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const text = event.target.value
+    if(text.length === 0) setSelectedOption(PREVIEW_TEXT_OPTIONS[1])
+    setValue(text);
+    debounceFn(text);
+  }
 
   useEffect(() => {
     if (selectedOption.title === 'Custom' && inputRef && inputRef.current)
@@ -39,8 +58,8 @@ const PreviewText = () => {
       />
       <input
         ref={inputRef}
-        value={customText}
-        onChange={(e) => setCustomText(e.target.value)}
+        value={value}
+        onChange={handleChangePreviewText}
         className="w-[100%] h-[100%] text-lg outline-none focus:placeholder:text-primaryColor"
         placeholder="Type Something"
       />
