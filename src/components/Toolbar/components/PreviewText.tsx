@@ -35,8 +35,19 @@ const PreviewText = () => {
   }
 
   useEffect(() => {
-    if (selectedOption.title === 'Custom' && inputRef && inputRef.current)
-      inputRef.current.focus();
+    if(selectedOption.title === 'Custom' && inputRef && inputRef.current) inputRef.current.focus();
+    if(selectedOption.title === 'Sentence') {
+      setValue("")
+      setPreviewText(
+        PREVIEW_TEXT_OPTIONS[1].value
+      );
+    }
+    if(selectedOption.title === 'Paragraph') {
+      setValue("")
+      setPreviewText(
+        PREVIEW_TEXT_OPTIONS[2].value
+      );
+    }
   }, [selectedOption]);
 
   useEffect(() => {

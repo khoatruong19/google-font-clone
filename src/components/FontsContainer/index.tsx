@@ -22,7 +22,7 @@ const FontsContainer = () => {
       );
     }
 
-    if (language.value !== '') {
+    if (language.value.length > 0) {
       tempFonts = tempFonts.filter((item) =>
         item.subsets.includes(language.value)
       );
