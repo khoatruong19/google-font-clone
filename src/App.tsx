@@ -15,10 +15,10 @@ function App() {
       try {
         const res = await googleFontService.getAllFonts();
         const fonts = res.data.items;
-        setFonts(fonts);
         _.forEach(fonts, (font) => {
           addFont(font.family, _.get(font, 'files.regular'));
         });
+        setFonts(fonts);
       } catch (error) {
         setFonts([]);
       }
