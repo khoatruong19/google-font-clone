@@ -4,7 +4,6 @@ export interface IFontInGeneral{
   family: string
   variants: string[]
   category: string
-  regularFontUrl: string
 }
 
 type FontState = {
