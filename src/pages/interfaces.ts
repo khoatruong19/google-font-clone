@@ -15,3 +15,8 @@ export interface ICheckboxOption {
     title: string
     value: boolean
 }
+
+export interface IFontRange {
+    name: string
+    url: string
+}

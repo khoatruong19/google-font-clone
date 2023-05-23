@@ -1,12 +1,16 @@
 import { ArrowPathIcon } from '@heroicons/react/24/solid';
-import { useState,useCallback } from 'react';
+import { useState,useCallback, useEffect } from 'react';
 import { FONT_SIZE_OPTIONS, DEFAULT_FONT_SIZE } from '../constants';
 import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
 import useFontStore from '../../../stores/fontStore';
 import _ from "lodash"
 
-const FontSize = () => {
+interface IProps{
+  customClass?: string
+}
+
+const FontSize = ({customClass = ""}: IProps) => {
   const {fontSize, setFontSize} = useFontStore()
 
   const [selectedSize, setSelectedSize] = useState<IOption>(fontSize);
@@ -14,7 +18,7 @@ const FontSize = () => {
   const debounceFn = useCallback(
     _.debounce((text) => {
       setFontSize(text);
-    }, 100),
+    }, 0),
     []
   );
 
@@ -30,14 +34,14 @@ const FontSize = () => {
 
   return (
     <div
-      className="text-secondaryColor flex-1 h-14 
+      className={`text-secondaryColor flex-1 h-14 
       border-[1.5px] rounded-3xl p-3 px-2 flex items-center gap-3 rounded-tl-none border-l-0 rounded-bl-none
-      border-collapse"
+      border-collapse ${customClass}`}
     >
       <CustomSelect
         optionsData={FONT_SIZE_OPTIONS}
         selectedOption={selectedSize}
-        setOption={setSelectedSize}
+        setOption={handleChangePreviewText}
         tooltipTitle='Font size'
       />
       <input

@@ -14,7 +14,8 @@ function App() {
       pending();
       try {
         const res = await googleFontService.getAllFonts();
-        const fonts = res.data.items;
+        let fonts = res.data.items;
+        fonts = _.take(fonts, 50)
         // _.forEach(fonts, (font) => {
         //   const newStyle = document.createElement('style');
         //   newStyle.appendChild(document.createTextNode('@font-face{font-family: '+font.family+'; src: url('+font.files.regular+');}'));

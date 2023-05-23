@@ -23,7 +23,7 @@ const PreviewText = () => {
   const debounceFn = useCallback(
     _.debounce((text) => {
       setPreviewText(text);
-    }, 100),
+    }, 0),
     []
   );
 

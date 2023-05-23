@@ -3,7 +3,7 @@ import FontCard from './components/FontCard';
 import useFontStore from '../../stores/fontStore';
 import NotFoundLight from "../../assets/not-found-light.png"
 import _ from 'lodash';
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 
 const FontsContainer = () => {
   const { fonts, fontSearchKey, categories, language } = useFontStore();
@@ -63,4 +63,4 @@ const FontsContainer = () => {
   );
 };
 
-export default FontsContainer;
+export default memo(FontsContainer);
