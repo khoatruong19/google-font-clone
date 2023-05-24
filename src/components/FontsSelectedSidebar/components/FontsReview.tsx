@@ -16,7 +16,7 @@ const FontsReview = ({ fontsSelected }: IProps) => {
     <div className="max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-primaryColor/20">
       <h4 className="text-sm font-semibold text-secondaryColor mb-3">Review</h4>
       <div className="flex flex-col gap-2">
-        {fontsSelected.map((font, i) => (
+        {fontsSelected.map((font) => (
           <div key={font.name} className="collapse collapse-arrow">
             <input type="checkbox" className="peer" />
             <div
