@@ -6,8 +6,10 @@ import NavIcon from './components/NavIcon';
 import { SunIcon } from '@heroicons/react/24/outline';
 import { QrCodeIcon } from '@heroicons/react/20/solid';
 import { ArrowDownTrayIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import useSelectedFontsStore from '../../stores/selectedFontsStore';
 
 const Header = () => {
+  const {toggleOpen} = useSelectedFontsStore()
   const { fontFamily } = useParams();
 
   const renderFontDetailNav = () => {
@@ -48,14 +50,14 @@ const Header = () => {
           </div>
         </Link>
         <div className="flex items-center">
-          <div className="flex items-center">
+          <div className="hidden sm:flex items-center">
             {NAV_ITEMS.map((item) => (
               <NavItem key={item.title} item={item} />
             ))}
           </div>
           <div className="flex items-center gap-2 ml-5">
             <NavIcon Icon={SunIcon} />
-            <NavIcon Icon={QrCodeIcon} />
+            <NavIcon Icon={QrCodeIcon} onClick={toggleOpen} />
           </div>
         </div>
       </div>

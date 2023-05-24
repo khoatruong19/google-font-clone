@@ -61,25 +61,25 @@ const FontDetail = () => {
   if (!fontData) return <p>No font found!</p>;
 
   return (
-    <div className="py-5">
-      <div className="mb-24">
-        <h1 className="text-4xl mb-20">{fontData.family}</h1>
+    <div className="py-5 px-2">
+      <div className="mb-12 md:mb-24">
+        <h1 className="text-3xl md:text-4xl mb-10 md:mb-20">{fontData.family}</h1>
 
         <p
-          className="text-6xl text-center md:max-w-[75vw] mx-auto"
+          className="text-3xl md:text-5xl lg:text-6xl text-center md:w-[75vw] mx-auto"
           style={{ fontFamily: 'regular' }}
         >
           {DEFAULT_SAMPLE_SENTENCES}
         </p>
       </div>
       <div>
-        <h2 className="text-[32px] mb-20">Styles</h2>
+        <h2 className="text-xl md:text-[32px] mb-10 md:mb-20">Styles</h2>
 
         <div className="flex items-center gap-2 pb-6 border-b-[1px] border-secondaryColor/20">
           <input
             type="text"
             placeholder="Type here to preview text"
-            className="w-[70%] input input-bordered input-error rounded-3xl h-[55px]"
+            className="max-w-[46%] md:w-[70%] input input-bordered input-error rounded-3xl h-[55px]"
             value={previewText}
             onChange={(e) => setPreviewText(e.target.value)}
           />

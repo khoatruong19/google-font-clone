@@ -34,7 +34,7 @@ const FontsContainer = () => {
   }, [fontSearchKey, fonts, categories, language]);
 
   return (
-    <div className="max-w-screen-2xl mx-auto px-2 min-h-[52vh]">
+    <div className="">
       {filteredFonts.length === 0 ? (
         <div className="min-h-[25vh] w-[100%] flex flex-col items-center justify-center gap-3">
           <img

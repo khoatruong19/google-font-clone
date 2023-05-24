@@ -24,7 +24,7 @@ const Toolbar = () => {
   return (
     <>
       <div className="sticky top-0 z-20 my-1 bg-white py-3">
-        <div className="max-w-screen-2xl px-2 mx-auto flex flex-col md:flex-row gap-3 md:gap-0">
+        <div className="flex flex-col md:flex-row gap-3 md:gap-0">
           <SearchFont />
           <div className="flex flex-1">
             <PreviewText />
@@ -32,7 +32,7 @@ const Toolbar = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-screen-2xl mx-auto px-2 flex flex-col mb-10">
+      <div className=" px-2 flex flex-col mb-10">
         <div className="flex gap-2 items-center flex-wrap">
           <CustomCheckboxSelect
             label="Category"

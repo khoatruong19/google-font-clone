@@ -3,6 +3,7 @@ import useFontStore from '../../stores/fontStore';
 import { convertFontWeightToName, handleStyleFont } from '../../utils/fontUtils';
 import _ from 'lodash';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
+import { DEFAULT_SAMPLE_SENTENCES } from '../FontsContainer/constants';
 
 interface IProps {
   fontsRange: IFontRange[];
@@ -15,14 +16,13 @@ const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
   return (
     <div>
       {fontsRange.map((font) => {
-
         const fontStyles = handleStyleFont(font.name)
         return (
           <div
             key={font.name}
             className="p-3 pb-5 border-b-[1px] border-secondaryColor/20 flex items-center justify-between"
           >
-            <div className='max-w-[80%]'>
+            <div className='max-w-[80%] overflow-hidden'>
               <p className="text-sm text-secondaryColor/80 mb-6 font-semibold">
                 {convertFontWeightToName(font.name)}{' '}
               </p>
@@ -31,12 +31,13 @@ const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
                   fontSize: fontSize.title,
                   ...fontStyles
                 }}
+                className='whitespace-nowrap'
               >
-                {previewText.length > 0 ? previewText : "Contrary to popular belief, Lorem Ipsum is not simply"}
+                {previewText.length > 0 ? previewText : DEFAULT_SAMPLE_SENTENCES}
               </p>
             </div>
             <div className='flex items-center gap-2 text-primaryColor hover:bg-primaryColor/10 p-2 rounded-md font-medium cursor-pointer'>
-                <span>Select {convertFontWeightToName(font.name)}</span>
+                <span>Select <span className='hidden md:inline'>{convertFontWeightToName(font.name)}</span></span>
                 <PlusCircleIcon className='w-5 h-5'/>
              </div>   
           </div>
