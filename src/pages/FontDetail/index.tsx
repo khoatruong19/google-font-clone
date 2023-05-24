@@ -11,6 +11,7 @@ import FontsRangeContainer from '../../components/FontsRangeContainer';
 
 type FontDetail = Omit<IFontInGeneral, 'fontUrl'> & {
   fontsRange: IFontRange[];
+  category: string
 };
 
 const FontDetail = () => {
@@ -29,7 +30,7 @@ const FontDetail = () => {
           name: i,
           url: data.files[i],
         }));
-        setFontData({ ...data, fontsRange });
+        setFontData({ ...data, fontsRange, category: data.category });
       } catch (error) {
         console.log(error);
       }
@@ -86,7 +87,7 @@ const FontDetail = () => {
           <FontSize customClass="border-none" />
         </div>
 
-        <FontsRangeContainer previewText={previewText} fontsRange={fontData.fontsRange} />
+        <FontsRangeContainer category={fontData.category} previewText={previewText} fontsRange={fontData.fontsRange} />
       </div>
     </div>
   );

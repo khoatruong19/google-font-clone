@@ -81,4 +81,10 @@ const handleStyleFont = (fontName: string) => {
   return fontStyle;
 };
 
-export { addFont, convertFontWeightToName, handleStyleFont };
+
+const getRealValueOfFontWeight = (font: string) => {
+  if(font === "regular" || font === "italic") return 400
+  return parseInt(font.split("italic")[0])
+}
+
+export { addFont, convertFontWeightToName, handleStyleFont, getRealValueOfFontWeight };

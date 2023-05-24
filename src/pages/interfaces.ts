@@ -24,4 +24,5 @@ export interface IFontRange {
 export interface IFontSelected {
     name: string
     value: string[]
+    category: string
 }

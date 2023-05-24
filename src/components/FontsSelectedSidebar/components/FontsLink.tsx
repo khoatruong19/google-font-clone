@@ -1,13 +1,34 @@
+import {useMemo} from "react"
+import useSelectedFontsStore from '../../../stores/selectedFontsStore';
 import { buildFontString } from '../../../utils/fontUsageUtils';
-import { GOOGLE_FONT_BASE_LINK_TAGS } from '../constants';
+import {
+  GOOGLE_FONT_BASE_LINK_TAGS,
+  GOOLE_FONT_LINK_END,
+  GOOLE_FONT_LINK_START,
+} from '../constants';
 
 const FontsLink = () => {
+  const {fontsSelected} = useSelectedFontsStore()
+
+  const fontsString = useMemo(() => {
+    let rel = ""
+    fontsSelected.forEach((font,i) => {
+      rel += buildFontString(font)
+      if(i !== fontsSelected.length - 1) rel += "&"
+    })
+    return rel
+  }, [fontsSelected])
+  
   return (
     <div className="py-2 px-1.5 bg-secondaryColor/5 text-[13px] break-all">
       {GOOGLE_FONT_BASE_LINK_TAGS.map((link) => (
         <p key={link}>{link}</p>
       ))}
-      <p dangerouslySetInnerHTML={{__html: buildFontString()} }></p>
+      <span>
+        {GOOLE_FONT_LINK_START}
+        <span dangerouslySetInnerHTML={{ __html: fontsString}}></span>
+        {GOOLE_FONT_LINK_END}
+      </span>
     </div>
   );
 };
