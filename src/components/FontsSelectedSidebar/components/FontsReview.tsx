@@ -14,7 +14,7 @@ const FontsReview = ({ fontsSelected }: IProps) => {
   const navigate = useNavigate();
 
   return (
-    <div className="h-full max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-primaryColor/20">
+    <div className="h-full max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-primaryColor/40 dark:scrollbar-thumb-tertiaryColorDark/40">
       <h4 className="font-semibold text-secondaryColor mb-6 dark:text-secondaryColorDark">Review</h4>
       <div className="flex flex-col gap-2">
         {fontsSelected.map((font) => (

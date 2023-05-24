@@ -43,7 +43,7 @@ const CustomSelect = (props: IProps) => {
       return (
         <div
           className={`w-[110%] py-2 absolute top-11 left-0 bg-white shadow-even rounded-lg max-h-[200px] overflow-y-auto overflow-x-hidden
-          scrollbar-thumb-primaryColor/40 scrollbar-thin ${customOptionsClass} dark:bg-primaryColorDark`}
+          scrollbar-thumb-primaryColor/40 dark:scrollbar-thumb-tertiaryColorDark/40 scrollbar-thin ${customOptionsClass} dark:bg-primaryColorDark`}
         >
           {optionsData.map((option) => (
             <div
