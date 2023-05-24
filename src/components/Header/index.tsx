@@ -4,12 +4,12 @@ import NavItem from './components/NavItem';
 import { Link, useParams } from 'react-router-dom';
 import NavIcon from './components/NavIcon';
 import { SunIcon } from '@heroicons/react/24/outline';
-import { QrCodeIcon } from '@heroicons/react/20/solid';
+import { QrCodeIcon } from '@heroicons/react/24/solid';
 import { ArrowDownTrayIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import useSelectedFontsStore from '../../stores/selectedFontsStore';
 
 const Header = () => {
-  const {toggleOpen} = useSelectedFontsStore()
+  const {fontsSelected,toggleOpen} = useSelectedFontsStore()
   const { fontFamily } = useParams();
 
   const renderFontDetailNav = () => {
@@ -57,7 +57,12 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-2 ml-5">
             <NavIcon Icon={SunIcon} />
-            <NavIcon Icon={QrCodeIcon} onClick={toggleOpen} />
+            <span className='relative'>
+              <NavIcon Icon={QrCodeIcon} onClick={toggleOpen} />
+              {fontsSelected.length > 0 && (
+                <span className='absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-primaryColor'/>
+              )}
+            </span>
           </div>
         </div>
       </div>

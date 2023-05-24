@@ -20,3 +20,8 @@ export interface IFontRange {
     name: string
     url: string
 }
+
+export interface IFontSelected {
+    name: string
+    value: string[]
+}
