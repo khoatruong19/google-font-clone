@@ -8,6 +8,7 @@ import { DEFAULT_SAMPLE_SENTENCES } from '../../components/FontsContainer/consta
 import FontSize from '../../components/Toolbar/components/FontSize';
 import { IFontRange } from '../interfaces';
 import FontsRangeContainer from '../../components/FontsRangeContainer';
+import PageLoading from '../../components/core/PageLoading';
 
 type FontDetail = Omit<IFontInGeneral, 'fontUrl'> & {
   fontsRange: IFontRange[];
@@ -17,6 +18,7 @@ type FontDetail = Omit<IFontInGeneral, 'fontUrl'> & {
 const FontDetail = () => {
   const { fontFamily } = useParams();
   const [fontData, setFontData] = useState<FontDetail | null>(null);
+  const [loading, setLoading] = useState(true)
   const [previewText, setPreviewText] = useState('');
 
   useEffect(() => {
@@ -34,6 +36,7 @@ const FontDetail = () => {
       } catch (error) {
         console.log(error);
       }
+      setLoading(false)
     };
     getFontDetail();
   }, [fontFamily]);
@@ -59,6 +62,7 @@ const FontDetail = () => {
     };
   }, [fontData]);
 
+  if(loading) return <PageLoading/>
   if (!fontData) return <p>No font found!</p>;
 
   return (
