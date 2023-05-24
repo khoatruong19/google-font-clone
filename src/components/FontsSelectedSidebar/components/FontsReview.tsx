@@ -9,7 +9,8 @@ interface IProps {
 }
 
 const FontsReview = ({ fontsSelected }: IProps) => {
-  const { deleteFontSelected } = useSelectedFontsStore();
+  const { deleteFontSelected, deleteFontValueSelected } =
+    useSelectedFontsStore();
   const navigate = useNavigate();
 
   return (
@@ -32,7 +33,12 @@ const FontsReview = ({ fontsSelected }: IProps) => {
                   className="flex items-center justify-between pb-1 pt-5"
                 >
                   <span>{convertFontWeightToName(value)}</span>
-                  <span className="p-1.5 rounded-full hover:bg-primaryColor/10 cursor-pointer">
+                  <span
+                    onClick={() =>
+                      deleteFontValueSelected({ fontFamily: font.name, value })
+                    }
+                    className="p-1.5 rounded-full hover:bg-primaryColor/10 cursor-pointer"
+                  >
                     <MinusCircleIcon className="w-6 h-6" />
                   </span>
                 </div>

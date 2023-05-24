@@ -18,7 +18,7 @@ interface IProps {
 
 const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
   const { fontSize } = useFontStore();
-  const { fontsSelected, setFontsSelected } = useSelectedFontsStore();
+  const { fontsSelected, setFontsSelected, deleteFontValueSelected } = useSelectedFontsStore();
   const [selectedFontIndexs, setSelectedFontsIndexs] = useState<number[]>([]);
 
   const { fontFamily } = useParams();
@@ -35,21 +35,7 @@ const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
     );
 
     if (selectedFontIndexs.includes(index) && existFontFamily) {
-      tempFontsSelected = _.compact(
-        _.map(tempFontsSelected, (i) => {
-          if (i.name !== existFontFamily.name) return i;
-          if (
-            existFontFamily.value.length === 1 &&
-            existFontFamily.value[0] === font.name
-          )
-            return null;
-          return {
-            ...i,
-            value: _.filter(i.value, (o) => o !== font.name),
-          };
-        })
-      );
-      setFontsSelected(tempFontsSelected);
+      deleteFontValueSelected({fontFamily: existFontFamily.name, value: font.name})
       setSelectedFontsIndexs((prev) => _.filter(prev, (o) => o !== index));
       return;
     }
@@ -61,11 +47,10 @@ const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
       });
     } else {
       tempFontsSelected = _.map(tempFontsSelected, (i) => {
-        if (i.name !== fontFamily) return i;
-        return {
-          ...i,
-          value: [...i.value, font.name],
-        };
+        if (i.name !== familyName) return i;
+        const newValues = _.clone(i)
+        _.set(newValues, "value", [...newValues.value, font.name])
+        return newValues
       });
     }
     setFontsSelected(tempFontsSelected);
@@ -96,7 +81,7 @@ const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
 
     if (!_.isEmpty(tempIndexs)) setSelectedFontsIndexs(tempIndexs);
   }, [fontsRange, fontsSelected, fontFamily]);
-
+  console.log({fontsSelected})
   return (
     <div>
       {fontsRange.map((font, i) => {
