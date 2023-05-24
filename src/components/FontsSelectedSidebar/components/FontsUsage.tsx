@@ -6,9 +6,9 @@ import FontsCSS from "./FontsCSS";
 const FontsUsage = () => {
   const [option, setOption] = useState<"link" | "import">("link")
   return (
-    <div className="border-t-[1px] border-secondaryColor/20 my-6">
+    <div className="border-t-[1px] border-secondaryColor/20 my-6 dark:border-secondaryColorDark/30">
       <div className="p-4">
-        <h4 className="font-semibold text-secondaryColor mb-6">
+        <h4 className="font-semibold text-secondaryColor dark:text-secondaryColorDark mb-6">
           Use on the web
         </h4>
         <p className="text-sm">
@@ -17,11 +17,11 @@ const FontsUsage = () => {
         </p>
         <div className="flex items-center gap-8 my-4 text-sm">
           <div className="flex items-center gap-2" onClick={() => setOption("link")}>
-              <input type="checkbox" checked={option === "link"} className="checkbox checkbox-error rounded-full" />
+              <input type="checkbox" checked={option === "link"} className="checkbox checkbox-error dark:checkbox-success rounded-full" />
               <span>{"<link>"}</span>
           </div>
           <div className="flex items-center gap-2" onClick={() => setOption("import")}>
-              <input type="checkbox" checked={option === "import"} className="checkbox checkbox-error rounded-full" />
+              <input type="checkbox" checked={option === "import"} className="checkbox checkbox-error dark:checkbox-success rounded-full" />
               <span>{"@import"}</span>
           </div>
         </div>

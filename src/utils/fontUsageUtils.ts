@@ -55,6 +55,4 @@ const buildFontString = (font: IFontSelected) => {
   return rel;
 };
 
-const buildGoogleFontsLinkTag = () => {console.log("hi")};
-
-export { buildGoogleFontsLinkTag, buildFontString };
+export { buildFontString };

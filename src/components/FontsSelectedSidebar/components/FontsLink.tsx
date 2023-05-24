@@ -20,7 +20,7 @@ const FontsLink = () => {
   }, [fontsSelected])
   
   return (
-    <div className="pt-2 pb-4 px-2 bg-secondaryColor/5 text-[13px] break-all">
+    <div className="pt-2 pb-4 px-2 bg-secondaryColor/5 dark:bg-secondaryColorDark/5 text-[13px] break-all">
       {GOOGLE_FONT_BASE_LINK_TAGS.map((link) => (
         <p key={link}>{link}</p>
       ))}

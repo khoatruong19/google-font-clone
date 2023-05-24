@@ -18,9 +18,10 @@ const NavItem = ({item}: IProps) => {
     }, [location.pathname,path])
 
   return (
-    <div className={`h-16 cursor-pointer px-7 border-b-4 ${isActive ? "border-primaryColor hover:bg-red-50" : "bg-gray-100"} border-collapse flex items-center justify-center`}>
+    <div className={`h-16 cursor-pointer px-7 border-b-4 dark:border-secondaryColorDark/30 ${isActive ? "border-primaryColor dark:border-tertiaryColorDark hover:bg-red-50" : "bg-gray-100"}
+     border-collapse flex items-center justify-center dark:bg-primaryColorDark dark:text-secondaryColorDark/30`}>
         <Link to={path}> 
-            <span className={`font-medium text-xl ${isActive ? "text-primaryColor" : ""}`}>
+            <span className={`font-medium text-xl ${isActive ? "text-primaryColor dark:text-secondaryColorDark" : ""}`}>
                 {title}
             </span>
         </Link>

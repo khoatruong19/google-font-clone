@@ -15,9 +15,9 @@ interface IProps {
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const NavIcon = ({ Icon, iconContainerClass = '', iconClass = '', onClick = () => {} }: IProps) => {
   return (
-    <div onClick={onClick} className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-secondaryColor/10 cursor-pointer
-    ${iconContainerClass}`}>
-      <Icon className={`h-6 w-6 ${iconClass}`} />
+    <div onClick={onClick} className={`h-12 w-12 flex items-center justify-center rounded-full hover:bg-secondaryColor/10 
+    cursor-pointer dark:hover:bg-secondaryColorDark/10 ${iconContainerClass}`}>
+      <Icon className={`h-6 w-6 ${iconClass} dark:text-secondaryColorDark`} />
     </div>
   );
 };

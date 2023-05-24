@@ -15,9 +15,4 @@ const APP_ROUTES : IPageRoute[] = [
     }
 ] 
 
-const CONVERT_SPECIAL_FONT_WEIGHTS = {
-    "regular": "400",
-    "italic": "400"
-}
-
-export {APP_ROUTES, CONVERT_SPECIAL_FONT_WEIGHTS}
+export {APP_ROUTES}

@@ -12,6 +12,9 @@ export default {
       colors: {
         primaryColor: "#BC371F",
         secondaryColor: "#253D4C",
+        primaryColorDark: "#233B45",
+        secondaryColorDark: "#D3E2D8",
+        tertiaryColorDark: "#77E9BA",
       },
       screens:{
         '3xl': '1600px',

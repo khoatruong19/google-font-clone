@@ -11,11 +11,11 @@ const FontsContainerHeader = ({filteredLength,totalLength}: IProps) => {
   const [sortBySelected, setSortBySelected] = useState(SORT_BY_OPTIONS[0]);
   return (
     <div className="flex items-center justify-between">
-      <span className="text-secondaryColor/80 text-[0.81rem] tracking-tight font-medium">
+      <span className="text-secondaryColor/80 text-[0.81rem] tracking-tight font-medium dark:text-secondaryColorDark">
         {filteredLength} of {totalLength} families
       </span>
       <div className="flex items-center gap-2">
-        <span>Sort by:</span>
+        <span className='dark:text-tertiaryColorDark'>Sort by:</span>
         <CustomSelect
           optionsData={SORT_BY_OPTIONS}
           selectedOption={sortBySelected}

@@ -55,12 +55,12 @@ const FontSize = ({customClass = ""}: IProps) => {
             value: `${e.target.value}`,
           })
         }
-        className="range range-error"
+        className="range range-error dark:range-success"
       />
       <div className="border-l-[1.5px] p-2 hidden md:block">
         <ArrowPathIcon
           onClick={handleResetSize}
-          className={`h-8 w-8 rounded-full p-1.5 ${
+          className={`h-8 w-8 rounded-full p-1.5 dark:text-secondaryColorDark ${
             selectedSize.value !== DEFAULT_FONT_SIZE.value ?
             'cursor-pointer hover:bg-secondaryColor/10 opacity-100' : "opacity-50"
           }`}

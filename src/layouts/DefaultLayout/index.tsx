@@ -13,11 +13,11 @@ const DefaultLayout = ({ children, customClassName = '' }: IProps) => {
   const { open: openSelectedFonts } = useSelectedFontsStore();
 
   return (
-    <div className="">
+    <div className="dark:bg-primaryColorDark">
       <div className={`${openSelectedFonts ? 'xl:mr-[320px]' : ''}`}>
         <Header />
         <div
-          className={`max-w-screen-2xl mx-auto px-2 md:px-4 lg:px-10 ${customClassName} `}
+          className={`max-w-screen-2xl mx-auto px-2 md:px-4 lg:px-10 ${customClassName}`}
         >
           {children}
         </div>

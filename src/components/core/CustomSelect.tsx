@@ -43,13 +43,13 @@ const CustomSelect = (props: IProps) => {
       return (
         <div
           className={`w-[110%] py-2 absolute top-11 left-0 bg-white shadow-even rounded-lg max-h-[200px] overflow-y-auto overflow-x-hidden
-          scrollbar-thumb-primaryColor/40 scrollbar scrollbar-thin ${customOptionsClass}`}
+          scrollbar-thumb-primaryColor/40 scrollbar-thin ${customOptionsClass} dark:bg-primaryColorDark`}
         >
           {optionsData.map((option) => (
             <div
               key={option.title}
-              className={`p-3 cursor-pointer text-secondaryColor ${
-                selectedOption.title === option.title ? 'bg-red-50' : 'hover:bg-secondaryColor/10'
+              className={`p-3 cursor-pointer text-secondaryColor dark:text-tertiaryColorDark ${
+                selectedOption.title === option.title ? 'bg-red-50 dark:bg-secondaryColorDark/20' : 'hover:bg-secondaryColor/10'
               }`}
               onClick={() => handleSelectOption(option)}
             >
@@ -66,14 +66,15 @@ const CustomSelect = (props: IProps) => {
       ref={selectRef}
       onClick={() => setOpen(prev => !prev)}
       className={`relative text-secondaryColor/80 py-2 px-2 justify-center flex items-center gap-2 cursor-pointer rounded-md
-       hover:bg-primaryColor/10 hover:text-primaryColor ${isOpen ? 'bg-primaryColor/10 text-primaryColor' : ''} ${customClass}`}
+       hover:bg-primaryColor/10 hover:text-primaryColor ${isOpen ? 'bg-primaryColor/10 text-primaryColor dark:bg-secondaryColorDark/10 dark:text-tertiaryColorDark' : ''} 
+       dark:hover:bg-secondaryColorDark/10 ${customClass}`}
       onMouseEnter={() => controlHover()}
       onMouseLeave={() => controlHover(true)}
     >
-      <span className={`text-sm font-medium ${isOpen && "text-primaryColor"}`}>
+      <span className={`text-sm dark:text-secondaryColorDark font-medium ${isOpen && "text-primaryColor dark:text-tertiaryColorDark"}`}>
         {selectedOption.title}
       </span>
-      <span className="mt-1 text-primaryColor">
+      <span className="mt-1 text-primaryColor dark:text-tertiaryColorDark">
         {isOpen ? (
           <ChevronUpIcon className="h-4 w-4" />
         ) : (

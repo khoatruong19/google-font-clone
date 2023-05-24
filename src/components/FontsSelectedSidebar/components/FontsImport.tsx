@@ -21,7 +21,7 @@ const FontsImport = () => {
   }, [fontsSelected])
   
   return (
-    <div className="pt-2 pb-4 px-2 bg-secondaryColor/5 text-[13px] break-all">
+    <div className="pt-2 pb-4 px-2 bg-secondaryColor/5 dark:bg-secondaryColorDark/5 text-[13px] break-all">
       <span>
         <p>{STYLE_OPEN_TAG}</p>
         <span dangerouslySetInnerHTML={{ __html: GOOLE_FONT_STYLE_START}}></span>

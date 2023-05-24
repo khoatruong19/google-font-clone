@@ -46,11 +46,11 @@ const CustomCheckboxSelect = (props: IProps) => {
       return (
         <div
           className={`w-[150px] py-2 absolute top-11 left-0 bg-white shadow-even rounded-lg max-h-[200px] overflow-y-auto overflow-x-hidden
-          scrollbar-thumb-primaryColor/40 scrollbar scrollbar-thin ${customOptionsClass}`}
+          scrollbar-thumb-primaryColor/40 scrollbar-thin ${customOptionsClass} dark:bg-primaryColorDark dark:text-secondaryColorDark`}
         >
           {optionsData.map((option) => (
             <div key={option.title} className={`flex items-center gap-3 whitespace-nowrap px-3 py-3`}>
-              <input onChange={() => setOption(option)} type="checkbox" checked={option.value} className="checkbox checkbox-error" />
+              <input onChange={() => setOption(option)} type="checkbox" checked={option.value} className="checkbox checkbox-error dark:checkbox-success" />
               <span>{option.title}</span>
             </div>
           ))}
@@ -64,18 +64,18 @@ const CustomCheckboxSelect = (props: IProps) => {
       <div
         onClick={() => setOpen(prev => !prev)}
         className={`text-secondaryColor/80 py-2 px-2 justify-center flex items-center gap-2 cursor-pointer rounded-md
-       hover:bg-primaryColor/10 hover:text-primaryColor ${
+       hover:bg-primaryColor/10 hover:text-primaryColor  ${
          isOpen ? 'bg-primaryColor/10 text-primaryColor' : ''
        } ${customClass}`}
         onMouseEnter={() => controlHover()}
         onMouseLeave={() => controlHover(true)}
       >
         <span
-          className={`text-sm font-medium ${isOpen && 'text-primaryColor'}`}
+          className={`text-sm font-medium dark:text-secondaryColorDark ${isOpen && 'text-primaryColor dark:text-tertiaryColorDark'}`}
         >
           {label}
         </span>
-        <span className="mt-1 text-primaryColor">
+        <span className="mt-1 text-primaryColor dark:text-tertiaryColorDark">
           {isOpen ? (
             <ChevronUpIcon className="h-4 w-4" />
           ) : (

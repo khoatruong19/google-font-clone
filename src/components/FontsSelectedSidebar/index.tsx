@@ -13,9 +13,9 @@ const FontsSelectedSidebar = () => {
     <div
       className={`fixed top-0 right-0 flex flex-col bg-white shadow-xl w-[340px] z-50 h-screen transition-all duration-150 ${
         open ? 'translate-x-0' : 'translate-x-[100%]'
-      }`}
+      } dark:bg-primaryColorDark dark:text-secondaryColorDark`}
     >
-      <div className="h-[64.9px] px-4 flex items-center justify-between border-b-[1.5px] border-secondaryColor/10">
+      <div className="h-[64.9px] px-4 flex items-center justify-between border-b-[1.5px] border-secondaryColor/10 dark:border-secondaryColorDark/20">
         <span className="font-medium text-lg">Selected family</span>
         <XMarkIcon
           onClick={toggleOpen}

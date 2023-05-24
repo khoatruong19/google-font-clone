@@ -23,7 +23,7 @@ const Toolbar = () => {
 
   return (
     <>
-      <div className="sticky top-0 z-20 my-1 bg-white py-3">
+      <div className="sticky top-0 z-20 my-1 bg-white py-3 dark:bg-primaryColorDark">
         <div className="flex flex-col md:flex-row gap-3 md:gap-0">
           <SearchFont />
           <div className="flex flex-1">
@@ -54,9 +54,9 @@ const Toolbar = () => {
             <input
               type="checkbox"
               checked
-              className="checkbox checkbox-error"
+              className="checkbox checkbox-error dark:checkbox-success"
             />
-            <span>Show only variable fonts</span>
+            <span className='dark:text-secondaryColorDark'>Show only variable fonts</span>
           </div>
         </div>
       </div>

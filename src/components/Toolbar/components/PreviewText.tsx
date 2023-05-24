@@ -71,7 +71,8 @@ const PreviewText = () => {
         ref={inputRef}
         value={value}
         onChange={handleChangePreviewText}
-        className="w-[100%] h-[100%] text-lg outline-none focus:placeholder:text-primaryColor"
+        className="w-[100%] h-[100%] text-lg outline-none focus:placeholder:text-primaryColor
+        dark:bg-primaryColorDark dark:text-secondaryColorDark dark:focus:placeholder:text-tertiaryColorDark"
         placeholder="Type Something"
       />
     </div>

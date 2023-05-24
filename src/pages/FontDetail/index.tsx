@@ -62,7 +62,7 @@ const FontDetail = () => {
   if (!fontData) return <p>No font found!</p>;
 
   return (
-    <div className="py-5 px-2">
+    <div className="py-5 px-2 dark:text-secondaryColorDark">
       <div className="mb-12 md:mb-24">
         <h1 className="text-3xl md:text-4xl mb-10 md:mb-20">
           {fontData.family}
@@ -78,11 +78,11 @@ const FontDetail = () => {
       <div>
         <h2 className="text-xl md:text-[32px] mb-10 md:mb-20">Styles</h2>
 
-        <div className="flex items-center gap-2 pb-6 border-b-[1px] border-secondaryColor/20">
+        <div className="flex items-center gap-2 pb-6 border-b-[1px] border-secondaryColor/20 dark:border-secondaryColorDark/20">
           <input
             type="text"
             placeholder="Type here to preview text"
-            className="max-w-[46%] md:w-[70%] input input-bordered input-error rounded-3xl h-[55px]"
+            className="max-w-[46%] md:w-[70%] input input-bordered input-error dark:input-success rounded-3xl h-[55px]"
             value={previewText}
             onChange={(e) => setPreviewText(e.target.value)}
           />
