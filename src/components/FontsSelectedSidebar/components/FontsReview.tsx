@@ -14,9 +14,9 @@ const FontsReview = ({ fontsSelected }: IProps) => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-[165px] max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-primaryColor/20">
-      <h4 className="text-sm font-semibold text-secondaryColor mb-3">Review</h4>
-      <div className="flex flex-col gap-2 pb-3">
+    <div className="h-full max-h-[280px] overflow-y-auto scrollbar-thin scrollbar-thumb-primaryColor/20">
+      <h4 className="font-semibold text-secondaryColor mb-6">Review</h4>
+      <div className="flex flex-col gap-2">
         {fontsSelected.map((font) => (
           <div key={font.name} className="collapse collapse-arrow">
             <input type="checkbox" className="peer" />
