@@ -1,7 +1,9 @@
 
 const FontsUsage = () => {
   return (
-    <div>FontsUsage</div>
+    <div className="border-b-[1px] border-secondaryColor/20 mt-4">
+      
+    </div>
   )
 }
 

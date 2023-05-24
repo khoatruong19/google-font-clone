@@ -89,7 +89,7 @@ const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
         return (
           <div
             key={font.name}
-            className="p-3 pb-5 border-b-[1px] border-secondaryColor/20 flex items-center justify-between"
+            className="p-3 pb-5 border-b-[1px] border-secondaryColor/20 flex items-center justify-between gap-3"
           >
             <div className="max-w-[80%] overflow-hidden">
               <p className="text-sm text-secondaryColor/80 mb-6 font-semibold">
@@ -109,11 +109,11 @@ const FontsRangeContainer = ({ fontsRange = [], previewText }: IProps) => {
             </div>
             <div
               onClick={() => handleSelectFont(font, i)}
-              className="flex items-center gap-1 text-primaryColor hover:bg-primaryColor/10 p-2 rounded-md font-medium cursor-pointer"
+              className="flex items-center gap-2 text-primaryColor hover:bg-primaryColor/10 p-2 rounded-md font-medium cursor-pointer"
             >
-              <span>
+              <span className='text-center'>
                 {selectedFontIndexs.includes(i) ? 'Remove ' : 'Select '}
-                <span className="hidden lg:inline">
+                <span className="hidden xl:inline">
                   {convertFontWeightToName(font.name)}
                 </span>
               </span>

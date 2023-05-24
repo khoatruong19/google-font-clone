@@ -23,7 +23,7 @@ const FontsSelectedSidebar = () => {
         />
       </div>
 
-      <div className="px-4 py-3 flex-1">
+      <div className="py-3 flex-1">
         {_.isEmpty(fontsSelected) ? (
           <div className="h-[100%] w-[100%] flex flex-col justify-center items-center gap-3">
             <img
@@ -37,7 +37,9 @@ const FontsSelectedSidebar = () => {
           </div>
         ) : (
           <>
-            <FontsReview fontsSelected={fontsSelected} />
+            <div className='px-4'>
+              <FontsReview fontsSelected={fontsSelected} />
+            </div>
             <FontsUsage />
           </>
         )}
