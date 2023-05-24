@@ -14,7 +14,7 @@ const DefaultLayout = ({ children, customClassName = '' }: IProps) => {
 
   return (
     <div className="">
-      <div className={`${openSelectedFonts ? 'lg:mr-[320px]' : ''}`}>
+      <div className={`${openSelectedFonts ? 'xl:mr-[320px]' : ''}`}>
         <Header />
         <div
           className={`max-w-screen-2xl mx-auto px-2 md:px-4 lg:px-10 ${customClassName} `}

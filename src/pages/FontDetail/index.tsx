@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import googleFontService from '../../services/googleFontsService';
 import _ from 'lodash';
 import { IFontInGeneral } from '../../stores/fontStore';
-import { addFont } from '../../utils/fontUtils';
+import { addFont, getRealValueOfFontWeight } from '../../utils/fontUtils';
 import { DEFAULT_SAMPLE_SENTENCES } from '../../components/FontsContainer/constants';
 import FontSize from '../../components/Toolbar/components/FontSize';
 import { IFontRange } from '../interfaces';
@@ -11,13 +11,13 @@ import FontsRangeContainer from '../../components/FontsRangeContainer';
 
 type FontDetail = Omit<IFontInGeneral, 'fontUrl'> & {
   fontsRange: IFontRange[];
-  category: string
+  category: string;
 };
 
 const FontDetail = () => {
   const { fontFamily } = useParams();
   const [fontData, setFontData] = useState<FontDetail | null>(null);
-  const [previewText, setPreviewText] = useState("");
+  const [previewText, setPreviewText] = useState('');
 
   useEffect(() => {
     const getFontDetail = async () => {
@@ -64,7 +64,9 @@ const FontDetail = () => {
   return (
     <div className="py-5 px-2">
       <div className="mb-12 md:mb-24">
-        <h1 className="text-3xl md:text-4xl mb-10 md:mb-20">{fontData.family}</h1>
+        <h1 className="text-3xl md:text-4xl mb-10 md:mb-20">
+          {fontData.family}
+        </h1>
 
         <p
           className="text-3xl md:text-5xl lg:text-6xl text-center md:w-[75vw] mx-auto"
@@ -87,7 +89,15 @@ const FontDetail = () => {
           <FontSize customClass="border-none" />
         </div>
 
-        <FontsRangeContainer category={fontData.category} previewText={previewText} fontsRange={fontData.fontsRange} />
+        <FontsRangeContainer
+          category={fontData.category}
+          previewText={previewText}
+          fontsRange={fontData.fontsRange.sort(
+            (a, b) =>
+              getRealValueOfFontWeight(a.name) -
+              getRealValueOfFontWeight(b.name)
+          )}
+        />
       </div>
     </div>
   );

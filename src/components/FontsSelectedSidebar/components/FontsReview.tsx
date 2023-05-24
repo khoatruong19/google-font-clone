@@ -46,7 +46,7 @@ const FontsReview = ({ fontsSelected }: IProps) => {
               <div className="flex items-center gap-6 text-primaryColor ml-[-8.5px] text-[15px]">
                 <button
                   onClick={() =>
-                    navigate(`font/${font.name.replaceAll(' ', '+')}`)
+                    navigate(`/font/${font.name.replaceAll(' ', '+')}`, { replace: true })
                   }
                   className="px-2 pt-1.5 pb-2 hover:bg-primaryColor/10 rounded-sm"
                 >

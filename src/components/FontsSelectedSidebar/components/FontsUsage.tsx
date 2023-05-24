@@ -1,11 +1,12 @@
 import { useState } from "react";
 import FontsLink from "./FontsLink";
 import FontsImport from "./FontsImport";
+import FontsCSS from "./FontsCSS";
 
 const FontsUsage = () => {
   const [option, setOption] = useState<"link" | "import">("link")
   return (
-    <div className="border-t-[1px] border-secondaryColor/20 mt-6">
+    <div className="border-t-[1px] border-secondaryColor/20 my-6">
       <div className="p-4">
         <h4 className="font-semibold text-secondaryColor mb-6">
           Use on the web
@@ -25,6 +26,7 @@ const FontsUsage = () => {
           </div>
         </div>
         {option === "link" ? <FontsLink/> : <FontsImport/>}
+        <FontsCSS/>
       </div>
     </div>
   );
