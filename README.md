@@ -28,6 +28,7 @@ These are technologies and libraries used to build this application:
 + Two themes "dark" and "light"
 ## Requirements checklist
 ✅   **List Google fonts based on a grid layout**
+
 ✅ **Create UX functionalities:**
 - ✅ Search for font name
 - ✅ Type to preview text
