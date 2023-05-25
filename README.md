@@ -57,7 +57,7 @@ If you want to run the project at your local machine, here are the steps:
 
 ## Contributing
 This is just a small side project for my personal works. Please don't use this project for:
-1. Commercial Purposees
+1. Commercial Purposes
 2. Distributing this project after modifying it
 3. You may not use this without appropriate attribution
 
