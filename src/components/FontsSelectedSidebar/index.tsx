@@ -11,7 +11,7 @@ const FontsSelectedSidebar = () => {
 
   return createPortal(
     <div
-      className={`fixed top-0 right-0 flex flex-col bg-white shadow-xl w-[340px] z-50 h-screen transition-all duration-150 ${
+      className={`z-[9999999] fixed top-0 right-0 flex flex-col bg-white shadow-xl w-[340px] h-screen transition-all duration-150 ${
         open ? 'translate-x-0' : 'translate-x-[100%]'
       } dark:bg-primaryColorDark dark:text-secondaryColorDark`}
     >

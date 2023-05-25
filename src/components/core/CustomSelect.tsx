@@ -74,7 +74,7 @@ const CustomSelect = (props: IProps) => {
     <div
       ref={selectRef}
       onClick={() => setOpen((prev) => !prev)}
-      className={`z-[99999] relative text-secondaryColor/80 py-2 px-2 justify-center flex items-center gap-2 cursor-pointer rounded-md
+      className={`z-100 relative text-secondaryColor/80 py-2 px-2 justify-center flex items-center gap-2 cursor-pointer rounded-md
        hover:bg-primaryColor/10 hover:text-primaryColor ${
          isOpen
            ? 'bg-primaryColor/10 text-primaryColor dark:bg-secondaryColorDark/10 dark:text-tertiaryColorDark'
