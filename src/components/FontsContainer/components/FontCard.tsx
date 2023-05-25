@@ -20,7 +20,7 @@ const FontCard = ({ font }: IProps) => {
   }, [font]);
 
   return (
-    <div className="h-[100%] min-h-[300px] w-[100%] border-[1.5px] rounded-lg hover:shadow-md cursor-pointer">
+    <div className="h-[100%] min-h-[300px] w-[100%] border-[1.5px] rounded-lg hover:shadow-md dark:hover:border-tertiaryColorDark cursor-pointer">
       <Link to={`font/${font.family.replaceAll(' ', '+')}`}>
         <div className="py-3 px-4 pb-5">
           <div className="flex items-start justify-between">
