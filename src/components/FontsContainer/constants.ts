@@ -3,19 +3,19 @@ import { IOption } from '../../pages/interfaces';
 const SORT_BY_OPTIONS: IOption[] = [
   {
     title: 'Trending',
-    value: '',
+    value: 'trending',
   },
   {
     title: 'Most Popular',
-    value: '',
+    value: 'popularity',
   },
   {
     title: 'Newest',
-    value: '',
+    value: 'date',
   },
   {
     title: 'Name',
-    value: '',
+    value: 'alpha',
   },
 ];
 

@@ -22,11 +22,12 @@ import {
   MOBILE_COLUMN_COUNT,
 } from './constants';
 import { ICellRenderProps } from './interfaces';
+import DataLoading from '../core/DataLoading';
 
 const FontsContainer = () => {
-  const { fonts, fontSearchKey, categories, language, previewText, fontSize } = useFontStore();
+  const { loading, fonts, fontSearchKey, categories, language, previewText, fontSize } = useFontStore();
   const { theme } = useThemeStore();
-
+  
   const filteredFonts = useMemo(() => {
     let categoryKeys = _.map(
       categories,
@@ -121,9 +122,11 @@ const FontsContainer = () => {
     fontSize
   ]);
 
+  if(loading) return <DataLoading/>
+
   return (
     <div>
-      {filteredFonts.length === 0 ? (
+      {!loading && filteredFonts.length === 0 ? (
         <div className="min-h-[55vh] w-[100%] flex flex-col items-center justify-center gap-3">
           <img
             className="w-28 h-28 object-cover ml-4"

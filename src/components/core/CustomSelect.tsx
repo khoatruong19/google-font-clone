@@ -56,7 +56,7 @@ const CustomSelect = (props: IProps) => {
             <div
               key={option.title}
               className={`p-3 cursor-pointer text-secondaryColor dark:text-tertiaryColorDark ${
-                selectedOption.title === option.title
+                selectedOption.value === option.value
                   ? 'bg-red-50 dark:bg-secondaryColorDark/20'
                   : 'hover:bg-secondaryColor/10'
               }`}
