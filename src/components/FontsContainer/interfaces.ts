@@ -3,4 +3,5 @@ export interface ICellRenderProps{
     key: any
     rowIndex: number
     style: any
+    parent: any
 }

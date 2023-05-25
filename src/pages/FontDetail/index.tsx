@@ -43,6 +43,9 @@ const FontDetail = () => {
 
   useEffect(() => {
     if (!fontData) return;
+
+    window.scrollTo({top: 0, behavior: "smooth"})
+
     const styles: HTMLStyleElement[] = [];
     _.forEach(fontData.fontsRange, (font) => {
       const style = addFont(

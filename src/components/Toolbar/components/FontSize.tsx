@@ -1,5 +1,5 @@
 import { ArrowPathIcon } from '@heroicons/react/24/solid';
-import { useState,useCallback } from 'react';
+import { useState } from 'react';
 import { FONT_SIZE_OPTIONS, DEFAULT_FONT_SIZE } from '../constants';
 import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
@@ -15,16 +15,8 @@ const FontSize = ({customClass = ""}: IProps) => {
 
   const [selectedSize, setSelectedSize] = useState<IOption>(fontSize);
 
-  const debounceFn = useCallback(
-    _.debounce((text) => {
-      setFontSize(text);
-    }, 0),
-    []
-  );
-
   const handleChangePreviewText = (size: IOption) => {
     setSelectedSize(size);
-    debounceFn(size);
   }
 
   const handleResetSize = () => {

@@ -45,7 +45,7 @@ const CustomCheckboxSelect = (props: IProps) => {
     if (isOpen)
       return (
         <div
-          className={`w-[150px] py-2 absolute top-11 left-0 bg-white shadow-even rounded-lg max-h-[200px] overflow-y-auto overflow-x-hidden
+          className={`z-[99999] w-[150px] py-2 absolute top-11 left-0 bg-white shadow-even rounded-lg max-h-[200px] overflow-y-auto overflow-x-hidden
           scrollbar-thumb-primaryColor/40 scrollbar-thin ${customOptionsClass} dark:bg-primaryColorDark dark:text-secondaryColorDark`}
         >
           {optionsData.map((option) => (
@@ -63,7 +63,7 @@ const CustomCheckboxSelect = (props: IProps) => {
     <div ref={selectRef} className="relative">
       <div
         onClick={() => setOpen(prev => !prev)}
-        className={`text-secondaryColor/80 py-2 px-2 justify-center flex items-center gap-2 cursor-pointer rounded-md
+        className={`z-[99999] text-secondaryColor/80 py-2 px-2 justify-center flex items-center gap-2 cursor-pointer rounded-md
        hover:bg-primaryColor/10 hover:text-primaryColor  ${
          isOpen ? 'bg-primaryColor/10 text-primaryColor' : ''
        } ${customClass}`}

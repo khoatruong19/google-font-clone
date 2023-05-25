@@ -15,8 +15,7 @@ function App() {
       pending();
       try {
         const res = await googleFontService.getAllFonts();
-        let fonts = res.data.items;
-        fonts = _.take(fonts, 50)
+        const fonts = res.data.items;
 
         setFonts(
           _.map(fonts, ({ family, variants, subsets, category, files }) => ({

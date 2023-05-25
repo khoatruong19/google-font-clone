@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState,useCallback } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { PREVIEW_TEXT_OPTIONS } from '../constants';
 import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
@@ -20,18 +20,10 @@ const PreviewText = () => {
     return selectedOption.title === 'Custom' || value.length > 0;
   }, [selectedOption, value]);
 
-  const debounceFn = useCallback(
-    _.debounce((text) => {
-      setPreviewText(text);
-    }, 0),
-    []
-  );
-
   const handleChangePreviewText = (event: React.ChangeEvent<HTMLInputElement>) => {
     const text = event.target.value
     if(text.length === 0) setSelectedOption(PREVIEW_TEXT_OPTIONS[1])
     setValue(text);
-    debounceFn(text);
   }
 
   useEffect(() => {
