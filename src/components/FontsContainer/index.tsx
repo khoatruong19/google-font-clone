@@ -65,8 +65,8 @@ const FontsContainer = () => {
   );
 
   const rowCount =
-    Math.floor(filteredFonts.length / columnCount) +
-    Math.ceil(filteredFonts.length % columnCount);
+    Math.floor(filteredFonts.length / columnCount) + 1
+   
 
   const handleResizeContainer = useCallback(({ width }: { width: number }) => {
     if (width > DESKTOP_MIN_SIZE) {
@@ -93,7 +93,7 @@ const FontsContainer = () => {
     const fontIndex = rowIndex * 3 + columnIndex;
     if (fontIndex >= filteredFonts.length) return null;
     const fontData = filteredFonts[fontIndex];
-    
+
     return (
       <CellMeasurer
         cache={cellMeasureCache.current}
@@ -102,7 +102,7 @@ const FontsContainer = () => {
         key={key}
         parent={parent}
       >
-        <div style={style} className={`min-h-[350px] ${columnIndex !== 2 ? "pr-6" : ""} pb-6`}>
+        <div style={style} className={`min-h-[400px] ${columnIndex !== 2 ? "pr-6" : ""} pb-6`}>
           <FontCard font={fontData}/>
         </div>
       </CellMeasurer>
