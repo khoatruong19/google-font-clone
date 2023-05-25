@@ -79,7 +79,7 @@ const useFontStore = create<FontState>((set) => ({
       if (fontSize.split('px').length === 2)
         filteredFontSize = {
           title: fontSize,
-          value: fontSize,
+          value: fontSize.split('px')[0],
         };
 
       return {
