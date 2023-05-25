@@ -1,29 +1,20 @@
 import { ArrowPathIcon } from '@heroicons/react/24/solid';
-import { useState } from 'react';
 import { FONT_SIZE_OPTIONS, DEFAULT_FONT_SIZE } from '../constants';
 import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
 import useFontStore from '../../../stores/fontStore';
-import _ from "lodash"
 
 interface IProps{
   customClass?: string
 }
 
 const FontSize = ({customClass = ""}: IProps) => {
-  const {fontSize, setFontSize} = useFontStore()
-
-  const [selectedSize, setSelectedSize] = useState<IOption>(fontSize);
+  const {fontSize, setFontSize, resetFilters} = useFontStore()
 
   const handleChangePreviewText = (size: IOption) => {
-    setSelectedSize(size);
+    setFontSize(size);
   }
-
-  const handleResetSize = () => {
-    setFontSize(DEFAULT_FONT_SIZE);
-    setSelectedSize(DEFAULT_FONT_SIZE);
-  }
-
+  
   return (
     <div
       className={`text-secondaryColor flex-1 h-14 
@@ -32,7 +23,7 @@ const FontSize = ({customClass = ""}: IProps) => {
     >
       <CustomSelect
         optionsData={FONT_SIZE_OPTIONS}
-        selectedOption={selectedSize}
+        selectedOption={fontSize}
         setOption={handleChangePreviewText}
         tooltipTitle='Font size'
       />
@@ -40,7 +31,7 @@ const FontSize = ({customClass = ""}: IProps) => {
         type="range"
         min="0"
         max="300"
-        value={selectedSize.value}
+        value={fontSize.value}
         onChange={(e) =>
           handleChangePreviewText({
             title: `${e.target.value}px`,
@@ -51,9 +42,9 @@ const FontSize = ({customClass = ""}: IProps) => {
       />
       <div className="border-l-[1.5px] p-2 hidden md:block">
         <ArrowPathIcon
-          onClick={handleResetSize}
+          onClick={resetFilters}
           className={`h-8 w-8 rounded-full p-1.5 dark:text-secondaryColorDark ${
-            selectedSize.value !== DEFAULT_FONT_SIZE.value ?
+            fontSize.value !== DEFAULT_FONT_SIZE.value ?
             'cursor-pointer hover:bg-secondaryColor/10 opacity-100' : "opacity-50"
           }`}
         />

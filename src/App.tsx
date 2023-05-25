@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import useFontStore from './stores/fontStore';
 import _ from 'lodash';
 import PageLoading from './components/core/PageLoading';
-// import { addFont } from './utils/fontUtils';
 
 function App() {
   const { loading, pending, setFonts } = useFontStore();

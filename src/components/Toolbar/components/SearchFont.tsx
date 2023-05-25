@@ -1,7 +1,7 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import useFontStore from '../../../stores/fontStore';
 import _ from 'lodash';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 
 const SearchFont = () => {
   const { fontSearchKey, setFontSearchKey } = useFontStore();
@@ -19,6 +19,10 @@ const SearchFont = () => {
     setValue(event.target.value);
     debounceFn(event.target.value);
   }
+
+  useEffect(() => {
+    if(fontSearchKey === "") setValue("")
+  }, [fontSearchKey])
 
   return (
     <div

@@ -3,7 +3,6 @@ import { PREVIEW_TEXT_OPTIONS } from '../constants';
 import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
 import useFontStore from '../../../stores/fontStore';
-import _ from "lodash"
 
 const PreviewText = () => {
   const {previewText, setPreviewText} = useFontStore()
@@ -24,6 +23,7 @@ const PreviewText = () => {
     const text = event.target.value
     if(text.length === 0) setSelectedOption(PREVIEW_TEXT_OPTIONS[1])
     setValue(text);
+    setPreviewText(text)
   }
 
   useEffect(() => {
@@ -46,6 +46,10 @@ const PreviewText = () => {
     if (isCustomMode && selectedOption.title !== 'Custom')
       setSelectedOption(PREVIEW_TEXT_OPTIONS[0]);
   }, [isCustomMode]);
+
+  useEffect(() => {
+    if(previewText === "") setValue("")
+  }, [previewText])
 
   return (
     <div
