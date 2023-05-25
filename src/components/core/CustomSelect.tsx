@@ -11,6 +11,7 @@ interface IProps {
   tooltipTitle?: string;
   customClass?: string;
   customOptionsClass?: string;
+  equalTitle?: boolean
 }
 
 const CustomSelect = (props: IProps) => {
@@ -21,6 +22,7 @@ const CustomSelect = (props: IProps) => {
     tooltipTitle,
     customClass = '',
     customOptionsClass = '',
+    equalTitle = false
   } = props;
   const selectRef = useRef<HTMLDivElement | null>(null);
   const [isOpen, setOpen] = useState(false);
@@ -56,7 +58,7 @@ const CustomSelect = (props: IProps) => {
             <div
               key={option.title}
               className={`p-3 cursor-pointer text-secondaryColor dark:text-tertiaryColorDark ${
-                selectedOption.value === option.value
+               (!equalTitle && selectedOption.value === option.value) || (equalTitle && selectedOption.title === option.title)
                   ? 'bg-red-50 dark:bg-secondaryColorDark/20'
                   : 'hover:bg-secondaryColor/10'
               }`}

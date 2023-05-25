@@ -89,7 +89,7 @@ const FontDetail = () => {
           <input
             type="text"
             placeholder="Type here to preview text"
-            className="max-w-[46%] md:w-[70%] input input-bordered input-error dark:input-success rounded-3xl h-[55px]"
+            className="max-w-[46%] md:w-[70%] input input-bordered input-error dark:input-success rounded-3xl h-[55px] dark:text-primaryColorDark"
             value={previewText}
             onChange={(e) => setPreviewText(e.target.value)}
           />

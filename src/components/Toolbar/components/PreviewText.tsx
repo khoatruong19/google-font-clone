@@ -62,6 +62,7 @@ const PreviewText = () => {
         selectedOption={selectedOption}
         setOption={setSelectedOption}
         tooltipTitle='Update preview text'
+        equalTitle
       />
       <input
         ref={inputRef}
