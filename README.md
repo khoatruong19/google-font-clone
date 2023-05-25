@@ -10,7 +10,7 @@ Hope you guys enjoy it!
 
 ## Technologies
 These are technologies and libraries used to build this application:
-+ ReactJS + Vite
++ ReactJS + Vite + Typescript
 + TailwindCSS + DaisyUI
 + Axios
 + Lodash
