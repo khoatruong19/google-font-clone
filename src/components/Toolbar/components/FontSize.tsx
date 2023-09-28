@@ -4,17 +4,17 @@ import CustomSelect from '../../core/CustomSelect';
 import { IOption } from '../../../pages/interfaces';
 import useFontStore from '../../../stores/fontStore';
 
-interface IProps{
-  customClass?: string
+interface IProps {
+  customClass?: string;
 }
 
-const FontSize = ({customClass = ""}: IProps) => {
-  const {fontSize, setFontSize, resetFilters} = useFontStore()
+const FontSize = ({ customClass = '' }: IProps) => {
+  const { fontSize, setFontSize, resetFilters } = useFontStore();
 
   const handleChangePreviewText = (size: IOption) => {
     setFontSize(size);
-  }
-  
+  };
+
   return (
     <div
       className={`text-secondaryColor flex-1 h-14 
@@ -25,7 +25,7 @@ const FontSize = ({customClass = ""}: IProps) => {
         optionsData={FONT_SIZE_OPTIONS}
         selectedOption={fontSize}
         setOption={handleChangePreviewText}
-        tooltipTitle='Font size'
+        tooltipTitle="Font size"
       />
       <input
         type="range"
@@ -44,8 +44,9 @@ const FontSize = ({customClass = ""}: IProps) => {
         <ArrowPathIcon
           onClick={resetFilters}
           className={`h-8 w-8 rounded-full p-1.5 dark:text-secondaryColorDark ${
-            fontSize.value !== DEFAULT_FONT_SIZE.value ?
-            'cursor-pointer hover:bg-secondaryColor/10 opacity-100' : "opacity-50"
+            fontSize.value !== DEFAULT_FONT_SIZE.value
+              ? 'cursor-pointer hover:bg-secondaryColor/10 opacity-100'
+              : 'opacity-50'
           }`}
         />
       </div>

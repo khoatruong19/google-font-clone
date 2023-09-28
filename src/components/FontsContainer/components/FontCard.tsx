@@ -25,7 +25,9 @@ const FontCard = ({ font }: IProps) => {
         <div className="py-3 px-4 pb-5">
           <div className="flex items-start justify-between">
             <div>
-              <h2 className="text-lg text-secondaryColor dark:text-tertiaryColorDark">{font.family}</h2>
+              <h2 className="text-lg text-secondaryColor dark:text-tertiaryColorDark">
+                {font.family}
+              </h2>
               <h3 className="text-sm text-secondaryColor/80 dark:text-secondaryColorDark/80">
                 {font.category}
               </h3>
@@ -36,7 +38,7 @@ const FontCard = ({ font }: IProps) => {
           </div>
 
           <p
-            className="mt-6 break-words dark:text-secondaryColorDark"
+            className="mt-6 break-words text-secondaryColor dark:text-secondaryColorDark"
             style={{ fontFamily: font.family, fontSize: fontSize.title }}
           >
             {previewText.length > 0 ? previewText : DEFAULT_SAMPLE_SENTENCES}

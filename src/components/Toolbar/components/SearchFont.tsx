@@ -15,14 +15,16 @@ const SearchFont = () => {
     []
   );
 
-  const handleChangeSearchKey = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeSearchKey = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setValue(event.target.value);
     debounceFn(event.target.value);
-  }
+  };
 
   useEffect(() => {
-    if(fontSearchKey === "") setValue("")
-  }, [fontSearchKey])
+    if (fontSearchKey === '') setValue('');
+  }, [fontSearchKey]);
 
   return (
     <div
@@ -34,7 +36,7 @@ const SearchFont = () => {
         value={value}
         onChange={handleChangeSearchKey}
         className="w-[100%] h-[100%] text-lg outline-none focus:placeholder:text-primaryColor
-         dark:bg-primaryColorDark dark:text-secondaryColorDark dark:focus:placeholder:text-tertiaryColorDark"
+         bg-white dark:bg-primaryColorDark dark:text-secondaryColorDark dark:focus:placeholder:text-tertiaryColorDark"
         placeholder="Search fonts"
       />
     </div>

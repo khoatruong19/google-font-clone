@@ -14,7 +14,7 @@ const DefaultLayout = ({ children, customClassName = '' }: IProps) => {
   const { open: openSelectedFonts } = useSelectedFontsStore();
 
   return (
-    <div className="dark:bg-primaryColorDark">
+    <div className="dark:bg-primaryColorDark bg-white">
       <div className={`${openSelectedFonts ? 'xl:mr-[320px]' : ''}`}>
         <Header />
         <div
@@ -25,7 +25,7 @@ const DefaultLayout = ({ children, customClassName = '' }: IProps) => {
         <Footer />
       </div>
       <FontsSelectedSidebar />
-      <ScrollToTop/>
+      <ScrollToTop />
     </div>
   );
 };

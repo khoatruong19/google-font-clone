@@ -5,13 +5,13 @@ import { IOption } from '../../../pages/interfaces';
 import useFontStore from '../../../stores/fontStore';
 
 const PreviewText = () => {
-  const {previewText, setPreviewText} = useFontStore()
+  const { previewText, setPreviewText } = useFontStore();
 
   const [selectedOption, setSelectedOption] = useState<IOption>(
     PREVIEW_TEXT_OPTIONS[1]
   );
 
-  const [value, setValue] = useState(previewText)
+  const [value, setValue] = useState(previewText);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -19,26 +19,25 @@ const PreviewText = () => {
     return selectedOption.title === 'Custom' || value.length > 0;
   }, [selectedOption, value]);
 
-  const handleChangePreviewText = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const text = event.target.value
-    if(text.length === 0) setSelectedOption(PREVIEW_TEXT_OPTIONS[1])
+  const handleChangePreviewText = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const text = event.target.value;
+    if (text.length === 0) setSelectedOption(PREVIEW_TEXT_OPTIONS[1]);
     setValue(text);
-    setPreviewText(text)
-  }
+    setPreviewText(text);
+  };
 
   useEffect(() => {
-    if(selectedOption.title === 'Custom' && inputRef && inputRef.current) inputRef.current.focus();
-    if(selectedOption.title === 'Sentence') {
-      setValue("")
-      setPreviewText(
-        PREVIEW_TEXT_OPTIONS[1].value
-      );
+    if (selectedOption.title === 'Custom' && inputRef && inputRef.current)
+      inputRef.current.focus();
+    if (selectedOption.title === 'Sentence') {
+      setValue('');
+      setPreviewText(PREVIEW_TEXT_OPTIONS[1].value);
     }
-    if(selectedOption.title === 'Paragraph') {
-      setValue("")
-      setPreviewText(
-        PREVIEW_TEXT_OPTIONS[2].value
-      );
+    if (selectedOption.title === 'Paragraph') {
+      setValue('');
+      setPreviewText(PREVIEW_TEXT_OPTIONS[2].value);
     }
   }, [selectedOption]);
 
@@ -48,8 +47,8 @@ const PreviewText = () => {
   }, [isCustomMode]);
 
   useEffect(() => {
-    if(previewText === "") setValue("")
-  }, [previewText])
+    if (previewText === '') setValue('');
+  }, [previewText]);
 
   return (
     <div
@@ -61,7 +60,7 @@ const PreviewText = () => {
         optionsData={PREVIEW_TEXT_OPTIONS}
         selectedOption={selectedOption}
         setOption={setSelectedOption}
-        tooltipTitle='Update preview text'
+        tooltipTitle="Update preview text"
         equalTitle
       />
       <input
@@ -69,7 +68,7 @@ const PreviewText = () => {
         value={value}
         onChange={handleChangePreviewText}
         className="w-[100%] h-[100%] text-lg outline-none focus:placeholder:text-primaryColor
-        dark:bg-primaryColorDark dark:text-secondaryColorDark dark:focus:placeholder:text-tertiaryColorDark"
+        bg-white dark:bg-primaryColorDark dark:text-secondaryColorDark dark:focus:placeholder:text-tertiaryColorDark"
         placeholder="Type Something"
       />
     </div>
